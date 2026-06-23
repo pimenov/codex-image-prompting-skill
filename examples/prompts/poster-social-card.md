@@ -3,10 +3,10 @@
 User request:
 
 ```text
-Prepare a prompt for a square social card promoting a workshop about practical AI workflows.
+Generate a square social card promoting a workshop about practical AI workflows. Show the prompt you used and the image.
 ```
 
-Polished prompt:
+Prompt used:
 
 ```text
 Square 1:1 social card for a professional workshop about practical AI workflows.
@@ -24,4 +24,10 @@ Editorial technology poster, restrained palette, warm off-white background, grap
 
 Quality constraints:
 Crisp typography, clear three-level hierarchy, readable at thumbnail size, no fake logos, no random extra text, no cluttered microtext.
+```
+
+Expected review note:
+
+```text
+Check whether the title is readable at thumbnail size. If the generated text is garbled, keep the image as a background direction and overlay typography separately.
 ```

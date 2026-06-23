@@ -3,10 +3,10 @@
 User request:
 
 ```text
-Prepare a prompt for a five-slide seamless carousel about turning task chaos into a clear plan.
+Generate a concept image for a five-slide seamless carousel about turning task chaos into a clear plan. Show the prompt and explain whether it is production-ready.
 ```
 
-Polished prompt:
+Prompt used:
 
 ```text
 Carousel mode:
@@ -36,4 +36,10 @@ Continuous world, no hard panel borders, no random words, no dense microtext. Th
 
 Slice notes:
 For production, build a deterministic 5400x1080 master canvas for five 1080x1080 slides, overlay exact typography after generation, and keep important text inside safe zones.
+```
+
+Expected review note:
+
+```text
+This is a concept image. Before publishing, check the master dimensions. For five 1080x1080 slides, production needs at least 5400x1080 and deterministic slicing.
 ```

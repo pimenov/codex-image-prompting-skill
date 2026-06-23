@@ -1,15 +1,15 @@
 ---
 name: codex-image-prompting
-description: "Draft, repair, and structure prompts for Codex Desktop image generation or image editing without local image API wrappers, CLI execution, key setup, or paid local generation paths. Use when the user asks to generate, create, draw, render, edit, improve, or prepare an image prompt, including image prompt, poster, social card, UI mockup, diagram, infographic, data visualization, hero image, carousel, seamless carousel, panoramic carousel, панорамная карусель, бесшовная карусель, or visual concept for Codex Desktop imagegen."
+description: "Draft, repair, structure, and use prompts for Codex Desktop image generation or image editing through the native image tool when available, without local image API wrappers, CLI execution, key setup, or paid local generation paths. Use when the user asks to generate, create, draw, render, edit, improve, or prepare an image prompt, including image prompt, poster, social card, UI mockup, diagram, infographic, data visualization, hero image, carousel, seamless carousel, panoramic carousel, панорамная карусель, бесшовная карусель, or visual concept for Codex Desktop imagegen."
 ---
 
 # Codex image prompting
 
 ## Purpose
 
-Use this skill to turn a rough visual intent into a strong prompt for Codex Desktop's native image generation or image editing tool. This is a prompt-design skill only.
+Use this skill to turn a rough visual intent into a strong prompt, then generate or edit the image with Codex Desktop's native image tool when the user asks for an image and the tool is available.
 
-Do not install or call local image-generation CLIs, local image API scripts, environment files, key setup, or paid local generation paths. If the user asks to generate inside Codex Desktop, use the native image tool with the polished prompt.
+Do not install or call local image-generation CLIs, local image API scripts, environment files, key setup, or paid local generation paths. Use the native Codex image tool instead of asking the user to copy prompts elsewhere.
 
 ## Operating loop
 
@@ -19,7 +19,9 @@ Do not install or call local image-generation CLIs, local image API scripts, env
 4. For ambiguous or high-polish work, ask at most one concise question. For clear requests, proceed.
 5. Draft the image prompt in English by default, while preserving user-supplied display text exactly in its original language.
 6. Put structure before style: canvas, layout, zones, subject, exact text, visual semantics, materials/light, quality constraints, avoid-line.
-7. If the user asked for a prompt, return the prompt in a fenced block plus one short note. If the user asked to generate, call native image generation directly with the polished prompt.
+7. If the user asked for a prompt only, return the prompt in a fenced block plus one short note.
+8. If the user asked for an image, briefly surface the polished prompt or prompt summary, then call native image generation with that prompt.
+9. After generation, give a concise critique and next-iteration suggestion, especially for typography, geometry, and production-readiness.
 
 ## Core rules
 
@@ -66,8 +68,18 @@ Note:
 
 For generation requests:
 
-- Use native Codex Desktop image generation with the polished prompt.
-- Do not expose a long preamble unless the user asked to see the prompt.
+```text
+Prompt used:
+<polished prompt or compact prompt summary>
+
+Generation:
+<call native image generation with the full polished prompt>
+
+Review:
+<one or two concrete notes about what worked and what to refine next>
+```
+
+Do not ask the user to copy the prompt into another tool when native image generation is available.
 
 For edit/reference-image requests:
 
@@ -91,6 +103,8 @@ Slice notes:
 <slide count, export size, safe zones, typography plan, geometry caveat>
 ```
 
+For carousel concept generation, generate the wide concept image when the user asks to see it. Still label it as concept-only unless the master geometry is verified for production slicing.
+
 ## Source pattern
 
-This skill adapts prompt-craft ideas from `wuyoscar/GPT-Image2-Skill`, but intentionally excludes local API execution, key handling, and packaged CLI generation.
+This skill adapts prompt-craft ideas from `wuyoscar/GPT-Image2-Skill`, but intentionally replaces local API/CLI execution with native Codex image generation when available.

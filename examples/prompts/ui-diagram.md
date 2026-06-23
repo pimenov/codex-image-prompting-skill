@@ -3,10 +3,10 @@
 User request:
 
 ```text
-Prepare an image prompt for a dashboard mockup showing how a team reviews incoming research notes.
+Generate a dashboard mockup showing how a team reviews incoming research notes and turns them into tasks. Show the prompt you used and the image.
 ```
 
-Polished prompt:
+Prompt used:
 
 ```text
 Create a production-quality 16:10 desktop dashboard mockup for a fictional product named "Signal Desk".
@@ -28,4 +28,10 @@ Quiet SaaS interface, dense but readable layout, soft gray background, white pan
 
 Quality constraints:
 Crisp typography, real product density, no lorem ipsum, no broken icons, no random chart labels, no fake brand marks.
+```
+
+Expected review note:
+
+```text
+Check whether the screen reads like a real product surface: table, graph preview, status cards, actions, and plausible labels should all be visible.
 ```

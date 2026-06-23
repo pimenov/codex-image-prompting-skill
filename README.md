@@ -1,13 +1,26 @@
 # Codex image prompting skill
 
-Публичный prompt-only skill для Codex Desktop, который помогает превращать
-сырой визуальный замысел в сильный промпт для генерации или редактирования
-изображений.
+Публичный prompt-first skill для Codex Desktop, который помогает превращать
+сырой визуальный замысел в сильный промпт, а затем сразу запускать генерацию
+или редактирование изображения, если в текущей среде доступен native image
+generation.
 
-Идея простая: не каждый визуальный запрос должен начинаться с API, ключей и
-локальных генераторов. Часто самая ценная часть работы — правильно описать
-артефакт: формат, сетку, текст, визуальную иерархию, ограничения, режим
-публикации и ожидаемые ошибки.
+Идея простая: перед генерацией полезно сначала спроектировать визуальную
+задачу. Часто самая ценная часть работы — правильно описать артефакт: формат,
+сетку, текст, визуальную иерархию, ограничения, режим публикации и ожидаемые
+ошибки.
+
+## Как он работает
+
+1. Codex принимает сырой визуальный запрос.
+2. Skill превращает его в структурированный промпт: формат, сетка, текст,
+   визуальная иерархия, стиль, ограничения и ожидаемые ошибки.
+3. Если пользователь просит именно картинку, Codex показывает или кратко
+   фиксирует промпт и запускает native image generation.
+4. Пользователь смотрит результат и дает правки; следующий проход уточняет
+   промпт или делает edit prompt.
+
+Так skill закрывает полный цикл: идея -> промпт -> картинка -> итерация.
 
 ## Что входит
 
@@ -21,7 +34,8 @@
 
 ## Когда использовать
 
-Skill полезен, когда нужно подготовить или улучшить промпт для:
+Skill полезен, когда нужно подготовить промпт, сгенерировать картинку или
+итеративно улучшить визуальный результат для:
 
 - постера, обложки, social card или thumbnail;
 - UI mockup;
@@ -30,8 +44,10 @@ Skill полезен, когда нужно подготовить или улу
 - image edit prompt с сохранением важных элементов;
 - seamless/panoramic carousel для соцсетей.
 
-Skill не запускает локальную генерацию, не просит API keys и не содержит
-оберток вокруг image API. Он проектирует промпт и production-aware workflow.
+Skill не запускает локальные генераторы, не просит API keys и не содержит
+оберток вокруг image API. Он использует native image generation там, где Codex
+его предоставляет, а для production-aware задач отдельно фиксирует ограничения
+по геометрии, тексту и нарезке.
 
 ## Быстрая установка
 
@@ -60,15 +76,15 @@ scripts/install.sh --skill codex-image-prompting
 ## Примеры запросов
 
 ```text
-Use $codex-image-prompting: prepare a prompt for a conference poster about a practical AI workflow.
+Use $codex-image-prompting: generate a conference poster about a practical AI workflow. Show me the prompt and the image.
 ```
 
 ```text
-Use $codex-image-prompting: make this rough UI mockup request precise enough for Codex Desktop image generation.
+Use $codex-image-prompting: generate a UI mockup for a dashboard that turns incoming research notes into tasks.
 ```
 
 ```text
-Use $codex-image-prompting: подготовь промпт для бесшовной карусели из 5 слайдов про то, как команда превращает хаос задач в ясный план.
+Use $codex-image-prompting: сделай concept-картинку для бесшовной карусели из 5 слайдов про то, как команда превращает хаос задач в ясный план.
 ```
 
 Готовые примеры лежат в `examples/prompts/`.
@@ -96,6 +112,7 @@ python3 scripts/check_carousel_geometry.py --image path/to/master.png --slides 5
 
 - Не содержит локального image API wrapper.
 - Не настраивает API keys.
+- Не заменяет native image generation там, где оно уже есть в Codex.
 - Не гарантирует пиксельно точные seamless-переходы между независимо сгенерированными изображениями.
 - Не заменяет Figma, Photoshop, HTML canvas или другой deterministic layout step для production assets.
 - Не включает приватные case studies или приватные generated images.
