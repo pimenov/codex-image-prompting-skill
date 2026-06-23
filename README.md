@@ -1,5 +1,7 @@
 # Codex image prompting skill
 
+![Codex image prompting workflow](docs/assets/readme-hero.png)
+
 Публичный prompt-first skill для Codex Desktop, который помогает превращать
 сырой визуальный замысел в сильный промпт, а затем сразу запускать генерацию
 или редактирование изображения, если в текущей среде доступен native image
@@ -28,6 +30,7 @@ generation.
 |---|---|
 | `skills/codex-image-prompting/SKILL.md` | Skill-инструкция для Codex |
 | `skills/codex-image-prompting/references/prompt-patterns.md` | Шаблоны промптов для разных визуальных задач |
+| `docs/assets/readme-hero.png` | Нейтральная README-иллюстрация рабочего цикла |
 | `examples/prompts/` | Нейтральные примеры промптов |
 | `scripts/validate_skills.py` | Проверка структуры и public-safety |
 | `scripts/check_carousel_geometry.py` | Проверка, годится ли master image для production-нарезки карусели |
