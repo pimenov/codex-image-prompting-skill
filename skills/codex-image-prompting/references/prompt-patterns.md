@@ -6,7 +6,7 @@ Use these patterns as prompt skeletons. Replace bracketed fields with concrete d
 
 - Universal prompt skeleton
 - Posters, covers, social cards
-- Seamless social carousels
+- Social carousel slides
 - UI mockups
 - Research, technical, and system diagrams
 - Data visualization concepts
@@ -40,6 +40,22 @@ Quality constraints:
 Crisp typography, clear hierarchy, readable labels, coherent spacing, no garbled text, no fake logos, no random extra text.
 ```
 
+## Common format menu
+
+Use this quick mapping when the user describes the goal in plain language:
+
+| User intent | Default format | Prompt focus |
+|---|---|---|
+| "picture for a post" | 16:9 social cover or 1:1 social card | one strong visual metaphor, one large headline |
+| "carousel" | 3-7 separate 1:1 slides | one idea per slide, consistent style |
+| "README / article image" | 16:9 editorial illustration | workflow, concept, or product idea without logos |
+| "app idea / screen" | UI mockup | product context, screen structure, realistic labels |
+| "explain how it works" | diagram or infographic | zones, arrows, labels, visual hierarchy |
+| "product / object" | product render | materials, lighting, camera, environment |
+| "realistic scene" | photorealistic scene | capture context, objects, people, lighting |
+
+For visible text, start with one large headline. Add a subtitle only when it is short and necessary.
+
 ## Posters, covers, social cards
 
 Use when making article covers, webinar cards, ads, posters, thumbnails, or event visuals.
@@ -63,61 +79,59 @@ Avoid:
 Unreadable microtext, garbled letters, fake sponsor logos, stock-photo blandness, cluttered hierarchy.
 ```
 
-## Seamless social carousels
+## Social carousel slides
 
-Use for Instagram, Threads, LinkedIn, or similar carousels where one wide visual continues across slides.
+Use for Instagram, Threads, LinkedIn, or similar carousels. For the first public version of this skill, prefer separate square slides in one consistent style. This is simpler, more reliable, and easier to iterate than a seamless panorama.
 
-### Concept mode
+### Separate-slide carousel
 
-Use this mode to explore visual direction quickly.
+Use this mode for practical social publishing.
 
 ```text
-Create one ultra-wide [N]:1 panoramic concept artwork for a seamless social media carousel, designed to suggest [N] square slides.
+Create square 1:1 carousel slide [K] of [N] for [platform/audience].
 
 Theme:
 "[central idea]"
 
-Slide plan:
-1. [Hook scene] - blank message zone for "[short title]"
-2. [Problem/contrast scene] - blank message zone for "[short title]"
-3. [Method/process scene] - blank message zone for "[short title]"
-4. [Proof/application scene] - blank message zone for "[short title]"
-5. [Conclusion/CTA scene] - blank message zone for "[short title]"
+Visible text:
+Render the exact large headline: "[short headline]"
+Render the exact short subtitle if needed: "[short subtitle]"
+
+Scene:
+[What this slide shows: hook/problem/process/proof/punchline].
 
 Continuity:
-A single visual element travels across all slides: [glowing line / road / ribbon / knowledge graph / timeline / river / cable].
+Keep the same visual system across all slides: [palette], [lighting], [character/object continuity], [icon style], [background grammar].
 
 Output constraints:
-Continuous world, no hard panel borders, no random text, no dense microtext. This is concept art, not final production geometry.
+Large readable text, one clear idea per slide, no random extra text, no tiny labels, no fake logos.
 ```
 
-### Production mode
-
-Use this mode when the carousel must be publishable.
+Recommended slide plan:
 
 ```text
-Production brief for a seamless carousel:
-- Slides: [N]
-- Export size per slide: [1080x1080 or other]
-- Required master canvas: [N*export_width] x [export_height]
-- Typography: overlay after image generation
-- Safe zones: keep essential text and subjects away from slice boundaries
-- Continuity element: [line/road/ribbon/graph] drawn or composited across the full master canvas
-- AI role: generate background/style assets or scene components, not final pixel geometry unless the generated master meets the required size
+1. Hook: "[short headline]"
+2. Setup/problem: "[short headline]"
+3. Method/process: "[short headline]"
+4. Insight/proof: "[short headline]"
+5. Punchline/CTA: "[short headline]"
 ```
 
-Before slicing, check pixel geometry. For `N` square slides exported at `1080x1080`, the master should be at least `N*1080` pixels wide and `1080` pixels tall. If it is smaller, either regenerate/extend at higher resolution or use it only as a style reference.
+### Panoramic concept
 
-### Overlap experiment mode
-
-Use this mode only when testing sequential generation of adjacent sections.
+Use this mode only to explore a wide visual direction. Do not treat it as a guaranteed slice-ready master.
 
 ```text
-Generate slide [K] of [N] with [overlap width] px overlap.
-Preserve the incoming edge from the previous section: [describe edge/reference].
-Continue the same palette, lighting, perspective, background geometry, and continuity element.
-Keep important text out of the overlap area.
-Output may need manual compositing and cleanup; do not assume pixel-perfect seams.
+Create one ultra-wide panoramic concept artwork for a social media carousel, designed to suggest [N] connected slides.
+
+Theme:
+"[central idea]"
+
+Continuity:
+A single visual element travels across the panorama: [glowing line / road / ribbon / knowledge graph / timeline / river / cable].
+
+Output constraints:
+Continuous world, no hard panel borders, no random text, no dense microtext. This is concept art for direction, not a production slicing workflow.
 ```
 
 ## UI mockups
@@ -312,4 +326,4 @@ Changing face/product identity, altering exact text, adding extra objects, chang
 - Are labels, axes, panels, legends, and UI values specified where needed?
 - Does the avoid-line target likely failures rather than generic negativity?
 - For edits, are preserve/change instructions separated?
-- For carousels, is the mode clearly marked as concept, production, or overlap experiment?
+- For carousels, is it clear whether this is a separate-slide set or only a panoramic concept?

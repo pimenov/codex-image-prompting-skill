@@ -29,5 +29,5 @@ Crisp typography, clear three-level hierarchy, readable at thumbnail size, no fa
 Expected review note:
 
 ```text
-Check whether the title is readable at thumbnail size. If the generated text is garbled, keep the image as a background direction and overlay typography separately.
+Check whether the title is readable at thumbnail size. If the generated text is garbled, simplify the wording and regenerate.
 ```

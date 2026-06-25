@@ -1,6 +1,6 @@
 ---
 name: codex-image-prompting
-description: "Draft, repair, structure, and use prompts for Codex Desktop image generation or image editing through the native image tool when available, without local image API wrappers, CLI execution, key setup, or paid local generation paths. Use when the user asks to generate, create, draw, render, edit, improve, or prepare an image prompt, including image prompt, poster, social card, UI mockup, diagram, infographic, data visualization, hero image, carousel, seamless carousel, panoramic carousel, панорамная карусель, бесшовная карусель, or visual concept for Codex Desktop imagegen."
+description: "Turn rough visual ideas into clear prompts for Codex Desktop ImageGen, then generate or edit images with the native image tool when available. Use when the user asks to create, generate, draw, render, edit, improve, or prepare an image prompt for posters, social cards, thumbnails, carousel slides, UI mockups, diagrams, infographics, data visualization concepts, README or article images, product renders, photo scenes, storyboards, or visual concepts. This skill is for prompt design and ImageGen iteration, not local API wrappers, CLI execution, key setup, deterministic layout tooling, or paid local generation paths."
 ---
 
 # Codex image prompting
@@ -9,19 +9,19 @@ description: "Draft, repair, structure, and use prompts for Codex Desktop image 
 
 Use this skill to turn a rough visual intent into a strong prompt, then generate or edit the image with Codex Desktop's native image tool when the user asks for an image and the tool is available.
 
-Do not install or call local image-generation CLIs, local image API scripts, environment files, key setup, or paid local generation paths. Use the native Codex image tool instead of asking the user to copy prompts elsewhere.
+Keep the first public version simple: prompt design plus native ImageGen iteration. Do not install or call local image-generation CLIs, local image API scripts, environment files, key setup, paid local generation paths, canvas exporters, or deterministic typography tooling. Use the native Codex image tool instead of asking the user to copy prompts elsewhere.
 
 ## Operating loop
 
-1. Classify the task: `new image`, `edit/reference image`, `inpaint-like edit`, `prompt only`, `prompt repair`, or `seamless carousel`.
-2. Identify artifact type: poster, hero image, article cover, social card, UI mockup, infographic, research figure, technical diagram, product render, photo scene, storyboard, character sheet, data visualization, or carousel.
+1. Classify the task: `new image`, `edit/reference image`, `prompt only`, `prompt repair`, or `carousel slides`.
+2. Identify artifact type: poster, hero image, article cover, social card, thumbnail, UI mockup, infographic, research figure, technical diagram, product render, photo scene, storyboard, character sheet, data visualization, README image, article image, or carousel slide set.
 3. Capture hard constraints: exact visible text, language, aspect ratio, audience, brand/product, output use, reference images, must-keep elements, and must-avoid elements.
 4. For ambiguous or high-polish work, ask at most one concise question. For clear requests, proceed.
 5. Draft the image prompt in English by default, while preserving user-supplied display text exactly in its original language.
 6. Put structure before style: canvas, layout, zones, subject, exact text, visual semantics, materials/light, quality constraints, avoid-line.
 7. If the user asked for a prompt only, return the prompt in a fenced block plus one short note.
 8. If the user asked for an image, briefly surface the polished prompt or prompt summary, then call native image generation with that prompt.
-9. After generation, give a concise critique and next-iteration suggestion, especially for typography, geometry, and production-readiness.
+9. After generation, give a concise critique and next-iteration suggestion, especially for text readability, composition, style fit, and whether the prompt should be simplified.
 
 ## Core rules
 
@@ -33,17 +33,25 @@ Do not install or call local image-generation CLIs, local image API scripts, env
 - For photorealistic scenes, specify capture context: camera position, lens feel, lighting, realistic surfaces, and concrete objects.
 - For multi-panel work, specify panel count, grid, roles, consistent palette/style, and identity continuity.
 - For image edits, state what to preserve before what to change.
+- For visible text, prefer short, large, high-contrast phrases. Long text, small labels, and many exact captions are likely to fail in ImageGen.
 - Use negation sparingly for likely failure modes: garbled text, fake logos, unreadable microtext, distorted hands, incoherent UI, cropped labels.
 
-## Seamless carousel modes
+## Text Strategy
+
+For the first version, do not route text through a separate overlay step. Try to get ImageGen to render text directly, but keep it simple.
+
+- Good ImageGen text: one short headline, one short subtitle, large type, high contrast, clean background.
+- Risky ImageGen text: paragraphs, dense labels, tables, small UI copy, many exact captions, long Cyrillic strings.
+- If text fails, simplify the words and regenerate before proposing external design tools or manual layout.
+- If the user explicitly asks for a production layout, explain that this skill focuses on prompting and ImageGen, not deterministic design assembly.
+
+## Carousel Guidance
 
 Use `references/prompt-patterns.md` for full carousel templates.
 
-- `concept`: Generate or draft a single wide visual direction. It may be low-resolution or not exactly slice-ready. Label it as concept-only.
-- `production`: Require a deterministic canvas, such as `5400x1080` for five `1080x1080` slides. Overlay exact text after image generation and export slices deterministically.
-- `overlap experiment`: Generate adjacent sections with overlap/reference edges. Treat this as exploratory, not pixel-perfect. Still use deterministic final layout if publishing.
+Prefer `separate-slide carousel` for social publishing: generate 3-7 square slides with one idea and one short headline per slide, while keeping the same visual system across prompts.
 
-Never present a small generated panorama cropped and upscaled into slides as production-ready. If the master is smaller than `slides * export_size` wide and `export_size` tall, call it a style reference or concept.
+Use `panoramic carousel concept` only to explore a wide visual direction. Do not promise pixel-perfect seamless slicing or production geometry. If the user wants a publishable carousel, make a clear slide plan and generate separate slides unless they explicitly ask for a production design workflow outside this skill.
 
 ## When to read references
 
@@ -94,16 +102,16 @@ For carousel requests:
 
 ```text
 Carousel mode:
-<concept | production | overlap experiment>
+<separate-slide carousel | panoramic concept>
 
-Master prompt:
-<wide-scene prompt or deterministic-layout brief>
+Slide plan:
+<numbered list of slide messages and visuals>
 
-Slice notes:
-<slide count, export size, safe zones, typography plan, geometry caveat>
+Generation:
+<generate the requested slide(s) with native ImageGen>
 ```
 
-For carousel concept generation, generate the wide concept image when the user asks to see it. Still label it as concept-only unless the master geometry is verified for production slicing.
+For carousel generation, start with either a full slide plan or the first 1-2 slides if the user wants to explore direction. Keep text large and short.
 
 ## Source pattern
 
