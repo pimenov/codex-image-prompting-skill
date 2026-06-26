@@ -13,7 +13,7 @@ Carousel mode:
 separate-slide carousel
 
 Visual system for all slides:
-Editorial systems-thinking illustration, warm off-white background, graphite linework, blue and amber accents, clean geometric composition, readable large text, no fake logos.
+Use the user's requested style if provided. If not, use a clean, modern, high-contrast visual system that fits the topic. Keep the same palette, lighting, character/object treatment, and background grammar across all slides. Do not default to a recurring house palette from prior examples.
 
 Slide 1:
 Square 1:1 Threads carousel slide 1 of 5.

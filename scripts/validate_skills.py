@@ -23,6 +23,16 @@ BANNED_PATTERNS = [
     "." + "env",
 ]
 
+STYLE_ANCHOR_PATTERNS = [
+    "warm" + " amber",
+    "warm" + " off-white",
+    "paper" + " texture",
+    "cream" + " paper",
+    "brown" + " palette",
+    "sep" + "ia",
+    "parch" + "ment",
+]
+
 NAME_RE = re.compile(r"^[a-z0-9-]+$")
 TEXT_EXTENSIONS = {".md", ".py", ".sh", ".yaml", ".yml", ".txt"}
 
@@ -98,6 +108,11 @@ def main() -> int:
             if pattern in text:
                 rel = path.relative_to(ROOT)
                 errors.append(f"{rel}: banned public-safety pattern {pattern!r}")
+        lower_text = text.lower()
+        for pattern in STYLE_ANCHOR_PATTERNS:
+            if pattern in lower_text:
+                rel = path.relative_to(ROOT)
+                errors.append(f"{rel}: banned default-style anchor {pattern!r}")
 
     if errors:
         print("Skill package validation failed:")

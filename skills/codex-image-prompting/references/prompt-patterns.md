@@ -48,7 +48,7 @@ Use this quick mapping when the user describes the goal in plain language:
 |---|---|---|
 | "picture for a post" | 16:9 social cover or 1:1 social card | one strong visual metaphor, one large headline |
 | "carousel" | 3-7 separate 1:1 slides | one idea per slide, consistent style |
-| "README / article image" | 16:9 editorial illustration | workflow, concept, or product idea without logos |
+| "README / article image" | 16:9 article image | workflow, concept, or product idea without logos |
 | "app idea / screen" | UI mockup | product context, screen structure, realistic labels |
 | "explain how it works" | diagram or infographic | zones, arrows, labels, visual hierarchy |
 | "product / object" | product render | materials, lighting, camera, environment |
@@ -73,7 +73,7 @@ Composition:
 Leave clean negative space for the title. Make the title readable at thumbnail size.
 
 Style:
-[Editorial / conference poster / premium tech / calm expert / magazine cover] with [palette], [lighting], [texture].
+[User-requested style or a topic-appropriate visual style] with [palette], [lighting], [texture/material if relevant].
 
 Avoid:
 Unreadable microtext, garbled letters, fake sponsor logos, stock-photo blandness, cluttered hierarchy.
@@ -180,7 +180,7 @@ Exact labels:
 "[module 1]", "[module 2]", "[data type]", "[risk label]", "[output label]".
 
 Style:
-White or very light background, restrained palette, thin vector-like lines, large readable labels, conference-paper clarity.
+[User-requested diagram style or a simple readable diagram style], large readable labels, clear lines, consistent spacing, accessible contrast.
 
 Avoid:
 Decorative sci-fi dashboard, tiny illegible labels, random math, fake company logos.
@@ -206,7 +206,7 @@ Labels:
 Use exact labels: "[title]", "[axis label]", "[legend item]", "[annotation]".
 
 Style:
-Editorial, readable, generous margins, consistent scales, accessible contrast.
+[User-requested visualization style or a simple readable chart style], generous margins, consistent scales, accessible contrast.
 
 Avoid:
 Fake precision, unreadable axes, inconsistent legends, random numbers unless supplied.
@@ -242,7 +242,7 @@ Use when multiple visual systems must be controlled: product, material, environm
 
 ```text
 /* PRODUCT_RENDER_CONFIG: [short name]
-   AESTHETIC: [premium commercial photography / editorial product render] */
+   AESTHETIC: [user-requested product/render aesthetic] */
 {
   "canvas": "[aspect ratio]",
   "subject": "[product/food object]",
@@ -252,7 +252,7 @@ Use when multiple visual systems must be controlled: product, material, environm
   "lighting": "[softbox/natural/window/backlight/highlights]",
   "motion_or_details": ["[splash/steam/crumbs/particles/condensation]"],
   "palette": "[colors]",
-  "output_mood": "[premium, calm, energetic, tactile]",
+  "output_mood": "[user-requested mood or topic-appropriate mood]",
   "avoid": ["cheap e-commerce look", "plastic CGI", "fake brand marks", "unreadable label text"]
 }
 ```

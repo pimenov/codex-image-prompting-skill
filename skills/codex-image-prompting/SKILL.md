@@ -36,6 +36,17 @@ Keep the first public version simple: prompt design plus native ImageGen iterati
 - For visible text, prefer short, large, high-contrast phrases. Long text, small labels, and many exact captions are likely to fail in ImageGen.
 - Use negation sparingly for likely failure modes: garbled text, fake logos, unreadable microtext, distorted hands, incoherent UI, cropped labels.
 
+## Style Neutrality
+
+Do not apply a house style by default. The skill should follow the user's requested style, brand, medium, genre, mood, and palette as closely as possible.
+
+- If the user names a style, use that style and do not replace it with a generic tech/editorial look.
+- If the user does not name a style, infer a lightweight style from the artifact and audience, then state it briefly before generation.
+- Do not reuse palettes or aesthetics from examples unless the user asks for them.
+- Do not default to any recurring aesthetic from prior examples, prior generations, or the assistant's own taste.
+- When style is underspecified, offer or choose a neutral fit such as clean, readable, high-contrast, and topic-appropriate rather than a fixed palette.
+- If a result drifts into an unintended style, repair the next prompt by naming both the desired style and the styles to avoid.
+
 ## Text Strategy
 
 For the first version, do not route text through a separate overlay step. Try to get ImageGen to render text directly, but keep it simple.
