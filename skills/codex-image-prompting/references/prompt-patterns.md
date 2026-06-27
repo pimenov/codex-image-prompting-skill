@@ -6,6 +6,7 @@ Use these patterns as prompt skeletons. Replace bracketed fields with concrete d
 
 - Universal prompt skeleton
 - Posters, covers, social cards
+- Format recipes
 - Social carousel slides
 - UI mockups
 - Research, technical, and system diagrams
@@ -55,6 +56,278 @@ Use this quick mapping when the user describes the goal in plain language:
 | "realistic scene" | photorealistic scene | capture context, objects, people, lighting |
 
 For visible text, start with one large headline. Add a subtitle only when it is short and necessary.
+
+## Format recipes
+
+Use these recipes when the user names a common publishing surface. The recipe sets the canvas and main layout discipline; the user's requested subject, text, and style still win.
+
+### README hero / GitHub social preview
+
+Use for repository previews, README headers, package announcements, and open-source project pages.
+
+```text
+Create a 2:1 GitHub social preview / README hero image for [project/package].
+
+Visible text:
+Main title: "[exact title]"
+Subtitle: "[exact subtitle]"
+
+Layout:
+- Left or top zone: large readable title and subtitle.
+- Main zone: one simple visual metaphor for [what the project does].
+- Flow zone if relevant: 2-4 simple stages connected by arrows.
+
+Style:
+[User-requested style]. Keep it readable at small preview size, with strong whitespace and no dense UI.
+
+Avoid:
+Tiny text, fake GitHub UI, fake logos, cluttered badges, random code snippets.
+```
+
+### Article cover / share image
+
+Use for blog posts, Telegram/Facebook/LinkedIn sharing, newsletters, and article thumbnails.
+
+```text
+Create a 16:9 article cover image for [article topic].
+
+Visible text:
+Title: "[exact title]"
+Subtitle if needed: "[exact subtitle]"
+
+Layout:
+- Title block with large readable typography.
+- One central image or metaphor that explains the article.
+- Optional small supporting objects, but no dense labels.
+
+Style:
+[User-requested editorial style], clear contrast, calm hierarchy.
+
+Avoid:
+Poster clutter, tiny captions, fake publication logos, generic stock business scene.
+```
+
+### Square social card
+
+Use for Instagram, Threads, LinkedIn square feed, Telegram posts, and compact social previews.
+
+```text
+Create a square 1:1 social card for [platform/audience] about [topic].
+
+Visible text:
+Large headline: "[exact headline]"
+Short subtitle if needed: "[exact subtitle]"
+
+Layout:
+- Top or center: headline.
+- Center: one strong symbol, product object, scene, or diagram.
+- Bottom: optional small cue or visual continuation, not extra text.
+
+Style:
+[User-requested style], high contrast, simple composition readable on a phone.
+
+Avoid:
+Many competing objects, multiple text blocks, decorative stickers unless requested.
+```
+
+### Portrait feed image
+
+Use for Instagram/LinkedIn portrait posts where vertical space helps the message breathe.
+
+```text
+Create a 4:5 portrait feed image for [platform/audience] about [topic].
+
+Visible text:
+Large headline: "[exact headline]"
+Short subtitle if needed: "[exact subtitle]"
+
+Layout:
+- Top: headline and subtitle.
+- Middle: main visual idea.
+- Bottom: secondary symbol, process step, or quiet visual closure.
+
+Style:
+[User-requested style], generous margins, phone-readable text.
+
+Avoid:
+Cropping important text near the edges, overly tall story-like composition, tiny labels.
+```
+
+### Story / vertical short-form cover
+
+Use for Instagram Stories, Telegram Stories, Reels covers, Shorts covers, and vertical announcements.
+
+```text
+Create a 9:16 vertical story image for [platform/audience] about [topic].
+
+Visible text:
+Large title: "[exact title]"
+Short subtitle if needed: "[exact subtitle]"
+
+Layout:
+- Top safe area: title, large and readable.
+- Middle: main image or process.
+- Bottom safe area: optional visual anchor, no long text.
+
+Style:
+[User-requested style], strong margins, mobile-first readability.
+
+Avoid:
+Small text, important content at extreme top/bottom edges, crowded poster composition.
+```
+
+### Thumbnail
+
+Use for video thumbnails, preview cards, and highly compressed feeds.
+
+```text
+Create a [16:9 or 1:1] thumbnail for [platform] about [topic].
+
+Visible text:
+Render only this large text: "[2-5 word hook]"
+
+Layout:
+One dominant subject, one readable hook, high contrast, strong silhouette.
+
+Style:
+[User-requested style]. Optimize for readability at tiny sizes.
+
+Avoid:
+Subtitles, paragraphs, multiple small objects, subtle low-contrast details.
+```
+
+### UI concept mockup
+
+Use for product concepts, SaaS screens, admin panels, dashboards, and mobile app ideas.
+
+```text
+Create a [desktop/mobile/tablet] UI concept mockup for [product/use case].
+
+Visible UI labels:
+"[product name]", "[screen title]", "[button]", "[tab 1]", "[tab 2]".
+
+Layout:
+- Header/navigation.
+- Primary work area.
+- Secondary panel or details area.
+- Realistic empty/loading/status states if relevant.
+
+Style:
+[User-requested product UI style], realistic density, precise alignment.
+
+Avoid:
+Lorem ipsum, fake charts with unreadable labels, decorative marketing layout instead of real UI.
+```
+
+### Technical diagram / workflow
+
+Use for explaining processes, systems, agent workflows, architecture, or method diagrams.
+
+```text
+Create a [16:9 or square] technical diagram explaining [process/system].
+
+Visible labels:
+"[input]", "[step 1]", "[step 2]", "[output]".
+
+Layout:
+- Left/top: input.
+- Center: 2-4 processing stages.
+- Right/bottom: output or decision.
+- Arrows show flow; dashed lines show optional or risky paths.
+
+Style:
+[User-requested diagram style], large labels, consistent line weights.
+
+Avoid:
+Sci-fi dashboard, random equations, dense microtext, fake infrastructure logos.
+```
+
+### Infographic / educational explainer
+
+Use for teaching a concept, comparing options, field guides, checklists, or visual summaries.
+
+```text
+Create a [aspect ratio] educational infographic about [subject].
+
+Visible text:
+Title: "[exact title]"
+Use only these short labels: "[label 1]", "[label 2]", "[label 3]".
+
+Layout:
+- Title band.
+- Main illustration or comparison area.
+- 3-5 numbered callouts or sections.
+- Optional legend.
+
+Style:
+[User-requested infographic style], clear hierarchy, readable labels.
+
+Avoid:
+Too many facts, tiny tables, random extra labels, cartoon chaos unless requested.
+```
+
+### Product render / object hero
+
+Use for fictional products, packaging concepts, physical objects, devices, food, or materials.
+
+```text
+Create a [aspect ratio] product hero image of [object/product].
+
+Composition:
+Hero object at [angle/scale], placed on [surface/environment].
+
+Material and lighting:
+[materials], [texture], [lighting], [background].
+
+Text:
+Only render exact text if essential: "[label text]".
+
+Style:
+[User-requested render/photo/illustration style].
+
+Avoid:
+Fake brand marks, unreadable label text, cheap e-commerce look, plastic CGI unless requested.
+```
+
+### Photorealistic scene
+
+Use when the user wants a real-life moment rather than a designed graphic.
+
+```text
+Create a photorealistic [aspect ratio] scene showing [situation].
+
+Capture:
+[camera position], [lens feel], [lighting], [time/place].
+
+Scene:
+Include concrete objects and lived-in details: [objects/surfaces/people/weather].
+
+Style:
+Natural color, plausible shadows, realistic imperfections, not an ad unless requested.
+
+Avoid:
+Glossy AI-ad look, impossible lighting, fake text, distorted hands, over-staged composition.
+```
+
+### Image edit / transformation
+
+Use when the user attaches or references an existing image and wants a specific change.
+
+```text
+Edit the provided image.
+
+Preserve:
+[identity, composition, pose, product shape, important text, lighting direction].
+
+Change:
+[specific edit].
+
+Output:
+[aspect ratio/use/style].
+
+Avoid:
+Changing identity, inventing new logos/text, moving important objects unless requested.
+```
 
 ## Posters, covers, social cards
 

@@ -2,23 +2,32 @@
 
 ![Codex image prompting workflow](docs/assets/readme-hero.png)
 
-Публичный prompt-first skill для Codex Desktop, который помогает превращать
-сырой визуальный замысел в сильный промпт для ImageGen, а затем сразу
-запускать генерацию или редактирование изображения, если в текущей среде
-доступен native image generation.
+Публичный skill для Codex Desktop, который помогает превращать сырой
+визуальный замысел в сильный промпт для ImageGen, а затем сразу запускать
+генерацию или редактирование изображения, если в текущей среде доступен native
+image generation.
 
 Идея простая: пользователь может спокойно объяснить словами, что хочет увидеть,
 а Codex превращает это в понятный визуальный промпт: формат, композиция,
 видимый текст, стиль, ограничения и типичные ошибки.
 
+Public repository:
+
+```text
+https://github.com/pimenov/codex-image-prompting-skill
+```
+
 ## Как он работает
 
-1. Codex принимает сырой визуальный запрос.
-2. Skill превращает его в структурированный промпт: формат, сетка, текст,
-   визуальная иерархия, стиль, ограничения и ожидаемые ошибки.
-3. Если пользователь просит именно картинку, Codex показывает или кратко
-   фиксирует промпт и запускает native image generation.
-4. Пользователь смотрит результат и дает правки; следующий проход упрощает,
+1. Пользователь описывает картинку обычными словами.
+2. Codex выбирает подходящий format recipe: README hero, article cover,
+   social card, story, carousel slide, UI mockup, diagram, product render,
+   photo scene или image edit.
+3. Skill превращает запрос в структурированный промпт: canvas, layout, visible
+   text, style, subject, constraints и avoid-line.
+4. Если пользователь просит именно картинку, Codex кратко показывает промпт и
+   запускает native image generation.
+5. Пользователь смотрит результат и дает правки; следующий проход упрощает,
    уточняет или меняет промпт.
 
 Так skill закрывает полный цикл: идея -> промпт -> картинка -> итерация.
@@ -38,6 +47,11 @@
 Skill полезен, когда нужно подготовить промпт, сгенерировать картинку или
 итеративно улучшить визуальный результат для:
 
+- README hero или GitHub social preview;
+- 16:9 обложки для статьи, Telegram, Facebook или LinkedIn;
+- квадратной social card;
+- 4:5 portrait feed image;
+- 9:16 story / vertical cover;
 - постера, обложки, social card или thumbnail;
 - картинки для README или статьи;
 - product render или photo scene;
@@ -55,7 +69,7 @@ Skill не запускает локальные генераторы, не пр
 ## Быстрая установка
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/pimenov/codex-image-prompting-skill.git
 cd codex-image-prompting-skill
 python3 scripts/validate_skills.py
 scripts/install.sh --dry-run

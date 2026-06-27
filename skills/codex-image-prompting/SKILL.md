@@ -17,11 +17,12 @@ Keep the first public version simple: prompt design plus native ImageGen iterati
 2. Identify artifact type: poster, hero image, article cover, social card, thumbnail, UI mockup, infographic, research figure, technical diagram, product render, photo scene, storyboard, character sheet, data visualization, README image, article image, or carousel slide set.
 3. Capture hard constraints: exact visible text, language, aspect ratio, audience, brand/product, output use, reference images, must-keep elements, and must-avoid elements.
 4. For ambiguous or high-polish work, ask at most one concise question. For clear requests, proceed.
-5. Draft the image prompt in English by default, while preserving user-supplied display text exactly in its original language.
-6. Put structure before style: canvas, layout, zones, subject, exact text, visual semantics, materials/light, quality constraints, avoid-line.
-7. If the user asked for a prompt only, return the prompt in a fenced block plus one short note.
-8. If the user asked for an image, briefly surface the polished prompt or prompt summary, then call native image generation with that prompt.
-9. After generation, give a concise critique and next-iteration suggestion, especially for text readability, composition, style fit, and whether the prompt should be simplified.
+5. Choose a format recipe when the output is a known use case: README hero, article cover, social square, portrait feed, story, carousel slide, UI mockup, diagram, infographic, product render, photo scene, or image edit.
+6. Draft the image prompt in English by default, while preserving user-supplied display text exactly in its original language.
+7. Put structure before style: canvas, layout, zones, subject, exact text, visual semantics, materials/light, quality constraints, avoid-line.
+8. If the user asked for a prompt only, return the prompt in a fenced block plus one short note.
+9. If the user asked for an image, briefly surface the polished prompt or prompt summary, then call native image generation with that prompt.
+10. After generation, give a concise critique and next-iteration suggestion, especially for text readability, composition, style fit, and whether the prompt should be simplified.
 
 ## Core rules
 
@@ -68,6 +69,7 @@ Use `panoramic carousel concept` only to explore a wide visual direction. Do not
 
 Read `references/prompt-patterns.md` when:
 
+- the user asks for a common publishing format and would benefit from a ready recipe;
 - the prompt must be client-ready or publication-ready;
 - the request involves UI, diagrams, data visualization, posters, dense text, product renders, image editing, or carousels;
 - the first draft would otherwise be generic;
