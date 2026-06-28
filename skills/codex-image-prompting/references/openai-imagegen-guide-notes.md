@@ -40,6 +40,7 @@ ImageGen can render short text, but it needs discipline.
 - Say where text belongs: title band, top-left, centered headline, caption under image, label beside object.
 - Use "no other readable text" when random extra text would hurt the result.
 - If text fails, shorten it, increase its size, reduce the number of text elements, and regenerate.
+- Long URLs, exact handles, legal lines, credits, and tiny footers are fragile. For prompt-only/ImageGen-first work, prefer short visible strings such as a domain or repo owner/name. If exact footer typography is mandatory, call it a production-layout/post-production step rather than hiding it inside the normal ImageGen loop.
 
 Template:
 
@@ -49,6 +50,14 @@ Render exactly one large headline: "[headline]".
 Render one smaller subtitle: "[subtitle]".
 Place both in the top third with high contrast and clear margins.
 No other readable text.
+```
+
+For a URL or credit test, make it large and isolated:
+
+```text
+Visible footer text:
+Render exactly one short footer line: "[short domain or repo path]".
+Place it as large readable text in the lower-left whitespace. No logo, no UI pill, no extra footer text.
 ```
 
 ## Style and visual specificity

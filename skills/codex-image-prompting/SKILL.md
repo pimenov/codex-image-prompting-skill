@@ -58,6 +58,7 @@ For the first version, do not route text through a separate overlay step. Try to
 - Good ImageGen text: one short headline, one short subtitle, large type, high contrast, clean background.
 - Risky ImageGen text: paragraphs, dense labels, tables, small UI copy, many exact captions, long Cyrillic strings.
 - If text fails, simplify the words and regenerate before proposing external design tools or manual layout.
+- URLs, legal text, credits, handles, and exact footer lines are high-risk in ImageGen. First try a short, large, isolated version in the generated image. If exact small text is required, explicitly label that as a post-production/production-layout need instead of silently adding a manual overlay.
 - If the user explicitly asks for a production layout, explain that this skill focuses on prompting and ImageGen, not deterministic design assembly.
 
 ## Carousel Guidance

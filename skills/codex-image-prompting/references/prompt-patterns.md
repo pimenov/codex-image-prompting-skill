@@ -109,6 +109,14 @@ Avoid:
 Poster clutter, tiny captions, fake publication logos, generic stock business scene.
 ```
 
+If the user asks to include a URL, credit, or repository address, keep it short and readable. Do not ask for a tiny exact footer unless the user accepts post-production layout.
+
+```text
+Optional footer:
+Render exactly one short footer line: "[domain or short repo path]".
+Place it in the lower-left whitespace, large enough to read, without logo marks or UI chrome.
+```
+
 ### Square social card
 
 Use for Instagram, Threads, LinkedIn square feed, Telegram posts, and compact social previews.
@@ -598,6 +606,7 @@ Changing face/product identity, altering exact text, adding extra objects, chang
 - Does it explain the intended use: article cover, README, social post, UI, edit, diagram, or concept?
 - Are all required visible words quoted exactly?
 - Is text short, large, high-contrast, and placed in a clear region?
+- Are URLs, credits, handles, or footer lines short enough for ImageGen, or should this be treated as production/post-production layout?
 - Is the layout explicit enough to prevent improvisation?
 - Does the style name a real visual context, not only "beautiful"?
 - Does the style specify medium, palette, density, line/camera/lighting, and what to avoid?
