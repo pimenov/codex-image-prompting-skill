@@ -23,6 +23,11 @@ BANNED_PATTERNS = [
     "." + "env",
 ]
 
+ALLOWED_PUBLIC_ATTRIBUTION = (
+    "Подготовлено [Сергеем Пименовым](https://pimenov" + "." + "ai) — "
+    "практические материалы про Codex, AI-агентов и рабочие системы."
+)
+
 STYLE_ANCHOR_PATTERNS = [
     "warm" + " amber",
     "warm" + " off-white",
@@ -65,6 +70,13 @@ def text_files(root: Path) -> list[Path]:
     )
 
 
+def public_safety_text(path: Path, text: str) -> str:
+    rel = path.relative_to(ROOT)
+    if rel == Path("README.md"):
+        return text.replace(ALLOWED_PUBLIC_ATTRIBUTION, "")
+    return text
+
+
 def main() -> int:
     errors: list[str] = []
 
@@ -104,8 +116,9 @@ def main() -> int:
 
     for path in text_files(ROOT):
         text = path.read_text(encoding="utf-8", errors="replace")
+        safety_text = public_safety_text(path, text)
         for pattern in BANNED_PATTERNS:
-            if pattern in text:
+            if pattern in safety_text:
                 rel = path.relative_to(ROOT)
                 errors.append(f"{rel}: banned public-safety pattern {pattern!r}")
         lower_text = text.lower()
