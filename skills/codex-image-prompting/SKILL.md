@@ -18,11 +18,12 @@ Keep the first public version simple: prompt design plus native ImageGen iterati
 3. Capture hard constraints: exact visible text, language, aspect ratio, audience, brand/product, output use, reference images, must-keep elements, and must-avoid elements.
 4. For ambiguous or high-polish work, ask at most one concise question. For clear requests, proceed.
 5. Choose a format recipe when the output is a known use case: README hero, article cover, social square, portrait feed, story, carousel slide, UI mockup, diagram, infographic, product render, photo scene, or image edit.
-6. Draft the image prompt in English by default, while preserving user-supplied display text exactly in its original language.
-7. Put structure before style: canvas, layout, zones, subject, exact text, visual semantics, materials/light, quality constraints, avoid-line.
-8. If the user asked for a prompt only, return the prompt in a fenced block plus one short note.
-9. If the user asked for an image, briefly surface the polished prompt or prompt summary, then call native image generation with that prompt.
-10. After generation, give a concise critique and next-iteration suggestion, especially for text readability, composition, style fit, and whether the prompt should be simplified.
+6. Apply the OpenAI image prompting pass for quality: intent, composition, exact text, style, constraints, likely failure modes, and iteration plan.
+7. Draft the image prompt in English by default, while preserving user-supplied display text exactly in its original language.
+8. Put structure before style: canvas, layout, zones, subject, exact text, visual semantics, materials/light, quality constraints, avoid-line.
+9. If the user asked for a prompt only, return the prompt in a fenced block plus one short note.
+10. If the user asked for an image, briefly surface the polished prompt or prompt summary, then call native image generation with that prompt.
+11. After generation, give a concise critique and next-iteration suggestion, especially for text readability, composition, style fit, constraint drift, and whether the prompt should be simplified.
 
 ## Core rules
 
@@ -35,6 +36,8 @@ Keep the first public version simple: prompt design plus native ImageGen iterati
 - For multi-panel work, specify panel count, grid, roles, consistent palette/style, and identity continuity.
 - For image edits, state what to preserve before what to change.
 - For visible text, prefer short, large, high-contrast phrases. Long text, small labels, and many exact captions are likely to fail in ImageGen.
+- For strong results, use positive concrete instructions first: subject, spatial arrangement, lighting/materials, camera or diagram grammar, mood, and exact exclusions.
+- For ambiguous style words such as "clean", "modern", "editorial", or "flat vector", anchor the prompt with real visual references: medium, palette economy, line weight, density, whitespace, and things to avoid.
 - Use negation sparingly for likely failure modes: garbled text, fake logos, unreadable microtext, distorted hands, incoherent UI, cropped labels.
 
 ## Style Neutrality
@@ -74,6 +77,12 @@ Read `references/prompt-patterns.md` when:
 - the request involves UI, diagrams, data visualization, posters, dense text, product renders, image editing, or carousels;
 - the first draft would otherwise be generic;
 - the user asks to make a prompt better or more precise.
+
+Read `references/openai-imagegen-guide-notes.md` when:
+
+- the user wants an impressive, polished, or publication-grade result;
+- the request includes exact text, image editing, UI, diagrams, infographics, product renders, photorealistic scenes, or character/story continuity;
+- a generated image drifts from the requested style, layout, text, or constraints.
 
 ## Output shapes
 

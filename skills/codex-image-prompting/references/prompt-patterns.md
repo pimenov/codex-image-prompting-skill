@@ -2,6 +2,8 @@
 
 Use these patterns as prompt skeletons. Replace bracketed fields with concrete details. Keep user-provided display text exact.
 
+For polished or failure-sensitive work, also apply `openai-imagegen-guide-notes.md` before generating.
+
 ## Table of contents
 
 - Universal prompt skeleton
@@ -593,10 +595,16 @@ Changing face/product identity, altering exact text, adding extra objects, chang
 ## Quick repair checklist
 
 - Does it say the artifact type and aspect ratio first?
+- Does it explain the intended use: article cover, README, social post, UI, edit, diagram, or concept?
 - Are all required visible words quoted exactly?
+- Is text short, large, high-contrast, and placed in a clear region?
 - Is the layout explicit enough to prevent improvisation?
 - Does the style name a real visual context, not only "beautiful"?
+- Does the style specify medium, palette, density, line/camera/lighting, and what to avoid?
 - Are labels, axes, panels, legends, and UI values specified where needed?
+- For UI, does the prompt describe a real product surface rather than a decorative marketing image?
+- For edits, are preserve/change/output instructions separated?
+- For photorealistic scenes, does the prompt describe capture context and concrete physical details?
 - Does the avoid-line target likely failures rather than generic negativity?
-- For edits, are preserve/change instructions separated?
 - For carousels, is it clear whether this is a separate-slide set or only a panoramic concept?
+- After generation, is the next prompt focused on the single biggest failure?
