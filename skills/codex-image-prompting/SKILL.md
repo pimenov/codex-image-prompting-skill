@@ -16,7 +16,7 @@ Keep the first public version simple: prompt design plus native ImageGen iterati
 1. Classify the task: `new image`, `edit/reference image`, `prompt only`, `prompt repair`, or `carousel slides`.
 2. Identify artifact type: poster, hero image, article cover, social card, thumbnail, UI mockup, infographic, research figure, technical diagram, product render, photo scene, storyboard, character sheet, data visualization, README image, article image, or carousel slide set.
 3. Capture hard constraints: exact visible text, language, aspect ratio, audience, brand/product, output use, reference images, must-keep elements, and must-avoid elements.
-4. For ambiguous or high-polish work, ask at most one concise question. For clear requests, proceed.
+4. Run the Brief Gate. If the request has a named event, quoted concept, emotional title, audience-specific context, or underspecified style/mood, pause before generation and gather the missing anchors.
 5. Choose a format recipe when the output is a known use case: README hero, article cover, social square, portrait feed, story, carousel slide, UI mockup, diagram, infographic, product render, photo scene, or image edit.
 6. Apply the OpenAI image prompting pass for quality: intent, composition, exact text, style, constraints, likely failure modes, and iteration plan.
 7. Draft the image prompt in English by default, while preserving user-supplied display text exactly in its original language.
@@ -28,6 +28,7 @@ Keep the first public version simple: prompt design plus native ImageGen iterati
 ## Core rules
 
 - Put every required visible string in quotes.
+- Treat quoted names and titles as meaning-bearing constraints, not decorative text. Ask what they should feel like before inventing objects or palette.
 - Start with format and layout, not adjectives.
 - Use fixed regions for infographics, educational boards, posters, and diagrams.
 - Write UI prompts like product specs: device, screen, information architecture, components, labels, values, states.
@@ -39,6 +40,23 @@ Keep the first public version simple: prompt design plus native ImageGen iterati
 - For strong results, use positive concrete instructions first: subject, spatial arrangement, lighting/materials, camera or diagram grammar, mood, and exact exclusions.
 - For ambiguous style words such as "clean", "modern", "editorial", or "flat vector", anchor the prompt with real visual references: medium, palette economy, line weight, density, whitespace, and things to avoid.
 - Use negation sparingly for likely failure modes: garbled text, fake logos, unreadable microtext, distorted hands, incoherent UI, cropped labels.
+
+## Brief Gate
+
+Before generation, stop and ask for a short brief when any of these are true:
+
+- the request includes a quoted event, stream, episode, product, or campaign name whose meaning is not visually obvious;
+- the user asks for a cover/poster/social image but gives no style or anti-style;
+- the prompt could drift into a generic cozy room, SaaS card, brown/purple AI default, stock photo, or unrelated genre;
+- the exact visible text is unclear or not explicitly quoted.
+
+Ask for up to three anchors, then generate:
+
+1. Meaning: what the title should communicate, for example meditative presence, irony, urgency, intimacy, launch, proof, or celebration.
+2. Text: exact visible strings in quotes.
+3. Style and anti-style: desired visual world plus what to avoid.
+
+If the user gave enough information to infer the anchors safely, state the inferred brief in one compact block and proceed. Do not silently invent a room, person, object, palette, or mood for a meaning-heavy title.
 
 ## Style Neutrality
 
@@ -83,6 +101,7 @@ Read `references/openai-imagegen-guide-notes.md` when:
 
 - the user wants an impressive, polished, or publication-grade result;
 - the request includes exact text, image editing, UI, diagrams, infographics, product renders, photorealistic scenes, or character/story continuity;
+- the request includes a quoted concept/title or sparse event brief that needs meaning before visual execution;
 - a generated image drifts from the requested style, layout, text, or constraints.
 
 ## Output shapes

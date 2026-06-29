@@ -59,6 +59,26 @@ Use this quick mapping when the user describes the goal in plain language:
 
 For visible text, start with one large headline. Add a subtitle only when it is short and necessary.
 
+## Brief-first pattern
+
+Use before generation when a quoted title or event name carries meaning and the visual direction is not obvious.
+
+```text
+Before generating, confirm three anchors:
+1. Meaning: Does "[quoted title]" mean [literal interpretation] or [intended emotional/conceptual interpretation]?
+2. Exact visible text: Should the image include "[title]", "[date/time]", "[platform]", or only the title?
+3. Style / anti-style: What should it feel like, and what should it avoid?
+```
+
+If proceeding with inferred anchors:
+
+```text
+Inferred brief:
+- Meaning: [inference].
+- Visible text: "[exact title]" / "[exact date/time/platform if needed]".
+- Style / anti-style: [style], avoid [likely wrong default].
+```
+
 ## Format recipes
 
 Use these recipes when the user names a common publishing surface. The recipe sets the canvas and main layout discipline; the user's requested subject, text, and style still win.
@@ -605,6 +625,7 @@ Changing face/product identity, altering exact text, adding extra objects, chang
 - Does it say the artifact type and aspect ratio first?
 - Does it explain the intended use: article cover, README, social post, UI, edit, diagram, or concept?
 - Are all required visible words quoted exactly?
+- If the request includes a quoted title or named event, was its intended meaning clarified or explicitly inferred?
 - Is text short, large, high-contrast, and placed in a clear region?
 - Are URLs, credits, handles, or footer lines short enough for ImageGen, or should this be treated as production/post-production layout?
 - Is the layout explicit enough to prevent improvisation?

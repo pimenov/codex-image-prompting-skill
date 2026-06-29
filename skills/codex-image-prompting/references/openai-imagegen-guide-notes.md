@@ -30,6 +30,38 @@ Before generating, make the prompt answer:
 
 Prefer concrete nouns and spatial instructions over vague adjectives. "Three large zones connected by arrows" is stronger than "clear workflow". "White background, deep navy line art, one accent color" is stronger than "clean tech style".
 
+## Brief-first cases
+
+Some requests look complete but are visually underspecified. Named events, streams, episodes, performances, campaigns, and quoted concepts often carry meaning that cannot be guessed from the words alone.
+
+Do not jump straight from a sparse event request to generation if it would require inventing the tone, symbolism, room, palette, or genre.
+
+Use this three-anchor brief:
+
+```text
+Brief:
+1. Meaning: "[what the title should feel like]"
+2. Exact visible text: "[title]" / "[date or platform if needed]"
+3. Style / anti-style: "[desired style]" / avoid "[unwanted default]"
+```
+
+Example:
+
+```text
+User request:
+Create a cover for a stream called "Just Sitting" on July 11 at 11:11.
+
+Do not assume:
+A cozy room, armchair, muddy dark palette, or generic streaming poster.
+
+Ask or infer:
+"Just Sitting" = meditative presence, not household sitting.
+Visible text = "Just Sitting", "July 11 · 11:11".
+Anti-style = no dark-brown cozy room, no generic AI purple/brown default.
+```
+
+If the user is not available and the request must continue, explicitly state the inferred brief before the prompt.
+
 ## Text inside images
 
 ImageGen can render short text, but it needs discipline.

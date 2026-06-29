@@ -20,14 +20,16 @@ https://github.com/pimenov/codex-image-prompting-skill
 ## Как он работает
 
 1. Пользователь описывает картинку обычными словами.
-2. Codex выбирает подходящий format recipe: README hero, article cover,
+2. Если запрос смысловой или недоопределенный, Codex сначала собирает короткий
+   brief: смысл, точный видимый текст, стиль и anti-style.
+3. Codex выбирает подходящий format recipe: README hero, article cover,
    social card, story, carousel slide, UI mockup, diagram, product render,
    photo scene или image edit.
-3. Skill превращает запрос в структурированный промпт: canvas, layout, visible
+4. Skill превращает запрос в структурированный промпт: canvas, layout, visible
    text, style, subject, constraints и avoid-line.
-4. Если пользователь просит именно картинку, Codex кратко показывает промпт и
+5. Если пользователь просит именно картинку, Codex кратко показывает промпт и
    запускает native image generation.
-5. Пользователь смотрит результат и дает правки; следующий проход упрощает,
+6. Пользователь смотрит результат и дает правки; следующий проход упрощает,
    уточняет или меняет промпт.
 
 Так skill закрывает полный цикл: идея -> промпт -> картинка -> итерация.
